@@ -15,7 +15,7 @@
  * @param {Interval[][]} intervals
  * @return {Interval[][]}
  */
-var intervals = [[5, 8], [3, 6]];
+var intervals = [[1, 3], [2, 6], [8, 10], [15, 18]];
 intervals.sort(function(a, b) {
   return a[0] - b[0];
 });

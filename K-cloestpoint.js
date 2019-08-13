@@ -20,10 +20,13 @@ function partition(arr, l, r) {
   while (l < r) {
     while (l < r && compare(arr[r], pivot) >= 0) r--;
     arr[l] = arr[r];
-    while (l < r && compare(arr[l], pivot) <= 0) r++;
+    while (l < r && compare(arr[l], pivot) <= 0) l++;
     arr[r] = arr[l];
   }
+  console.log(arr[l] + " pivot" + pivot);
   arr[l] = pivot;
+
+  console.log("this is l  " + l);
   return l;
 }
 

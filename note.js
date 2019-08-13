@@ -220,41 +220,63 @@
 // // first call to quick sort
 // var sortedArray = quickSort(items, 0, items.length - 1);
 // console.log(sortedArray); //prints [2,3,5,6,7,9]
-var prisonAfterNDays = function(cells, N) {
-  if (cells == null || N <= 0) return cells;
-  var myset = new Set();
-  var cycle = 0;
-  var hasCycle = new Boolean(false);
-  for (var i = 0; i < N; i++) {
-    var next = NextDay(cells);
-    if (myset.has(next)) {
-      hasCycle = true;
-      //   console.log(myset.has(key));
-      break;
-    } else {
-      cycle++;
-      myset.add(next);
-      console.log("false" + myset.has(next));
-    }
-    cells = next;
-  }
-  if (hasCycle) {
-    N = N % cycle;
-    // console.log(hasCycle);
-    for (var i = 0; i < N; i++) {
-      cells = NextDay(cells);
-    }
-  }
-  return cells;
-};
-function NextDay(cells) {
-  var nextcells = [];
-  nextcells[0] = 0;
-  nextcells[7] = 0;
-  for (var i = 1; i < 7; i++) {
-    nextcells[i] = cells[i - 1] == cells[i + 1] ? 1 : 0;
-  }
+// var prisonAfterNDays = function(cells, N) {
+//   if (cells == null || N <= 0) return cells;
+//   var myset = new Set();
+//   var cycle = 0;
+//   var hasCycle = new Boolean(false);
+//   for (var i = 0; i < N; i++) {
+//     var next = NextDay(cells);
+//     if (myset.has(next)) {
+//       hasCycle = true;
+//       //   console.log(myset.has(key));
+//       break;
+//     } else {
+//       cycle++;
+//       myset.add(next);
+//       console.log("false" + myset.has(next));
+//     }
+//     cells = next;
+//   }
+//   if (hasCycle) {
+//     N = N % cycle;
+//     // console.log(hasCycle);
+//     for (var i = 0; i < N; i++) {
+//       cells = NextDay(cells);
+//     }
+//   }
+//   return cells;
+// };
+// function NextDay(cells) {
+//   var nextcells = [];
+//   nextcells[0] = 0;
+//   nextcells[7] = 0;
+//   for (var i = 1; i < 7; i++) {
+//     nextcells[i] = cells[i - 1] == cells[i + 1] ? 1 : 0;
+//   }
 
-  return nextcells;
+//   return nextcells;
+// }
+// console.log(prisonAfterNDays([1, 0, 0, 1, 0, 0, 1, 0], 28));
+
+function TreeNode(val) {
+  this.val = val;
+  this.left = this.right = null;
 }
-console.log(prisonAfterNDays([1, 0, 0, 1, 0, 0, 1, 0], 28));
+
+var levelOrder = function(root) {
+  if (!root) return;
+  var queue = [[root]];
+
+  while (queue > 0) {
+    var l = queue.length;
+    for (let i = 0; i < l; l++) {
+      var node = queue[i];
+      var level = [];
+      if (node.left) level.push(node.left);
+      if (node.right) level.push(node.right);
+    }
+    queue.push(level);
+  }
+  return queue;
+};
