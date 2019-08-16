@@ -259,24 +259,35 @@
 // }
 // console.log(prisonAfterNDays([1, 0, 0, 1, 0, 0, 1, 0], 28));
 
-function TreeNode(val) {
-  this.val = val;
-  this.left = this.right = null;
-}
+// function TreeNode(val) {
+//   this.val = val;
+//   this.left = this.right = null;
+// }
 
-var levelOrder = function(root) {
-  if (!root) return;
-  var queue = [[root]];
+// var levelOrder = function(root) {
+//   if (!root) return;
+//   var queue = [[root]];
 
-  while (queue > 0) {
-    var l = queue.length;
-    for (let i = 0; i < l; l++) {
-      var node = queue[i];
-      var level = [];
-      if (node.left) level.push(node.left);
-      if (node.right) level.push(node.right);
-    }
-    queue.push(level);
+//   while (queue > 0) {
+//     var l = queue.length;
+//     for (let i = 0; i < l; l++) {
+//       var node = queue[i];
+//       var level = [];
+//       if (node.left) level.push(node.left);
+//       if (node.right) level.push(node.right);
+//     }
+//     queue.push(level);
+//   }
+//   return queue;
+// };
+
+function a() {
+  if (true) {
+    var f = 2;
   }
-  return queue;
-};
+  function b() {
+    console.log(f);
+  }
+  b();
+}
+a();
